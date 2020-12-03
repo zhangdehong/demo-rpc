@@ -22,7 +22,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 public class DemoRpcDecoder extends ByteToMessageDecoder {
 
     @Override
-    protected void decode(ChannelHandlerContext ctx, ByteBuf byteBuf, List<Object> out) throws Exception {
+    protected void decode (ChannelHandlerContext ctx, ByteBuf byteBuf, List<Object> out) throws Exception {
         // 不到16字节的话无法解析消息头，暂不读取
         if (byteBuf.readableBytes() < Constants.HEADER_SIZE) {
             return;
@@ -68,7 +68,7 @@ public class DemoRpcDecoder extends ByteToMessageDecoder {
         }
         // 将上面读取到的消息头和消息体拼装成完整的Message并向后传递
         Header header = new Header(magic, version, extraInfo, messageId, size);
-        Message message = new Message(header, body);
+        Message<Object> message = new Message<>(header, body);
         out.add(message);
     }
 }

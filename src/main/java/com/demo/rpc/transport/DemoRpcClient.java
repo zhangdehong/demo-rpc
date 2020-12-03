@@ -32,7 +32,8 @@ public class DemoRpcClient implements Closeable {
                 .option(ChannelOption.TCP_NODELAY, true)
                 .option(ChannelOption.SO_KEEPALIVE, true)
                 .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
-                .channel(NioSocketChannel.class) // 创建的Channel类型
+                // 创建的Channel类型
+                .channel(NioSocketChannel.class)
                 // 指定ChannelHandler的顺序
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override

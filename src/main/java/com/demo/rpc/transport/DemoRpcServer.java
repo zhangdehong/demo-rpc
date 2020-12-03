@@ -26,7 +26,7 @@ public class DemoRpcServer {
     private Channel channel;
     protected int port;
 
-    public DemoRpcServer(int port) throws InterruptedException {
+    public DemoRpcServer (int port) throws InterruptedException {
         this.port = port;
         // 创建boss和worker两个EventLoopGroup，注意一些小细节，
         // workerGroup 是按照中的线程数是按照 CPU 核数计算得到的
@@ -44,7 +44,7 @@ public class DemoRpcServer {
                 .handler(new LoggingHandler(LogLevel.INFO)).childHandler(
                         new ChannelInitializer<SocketChannel>() {
                             @Override
-                            protected void initChannel(SocketChannel ch) throws Exception {
+                            protected void initChannel (SocketChannel ch) throws Exception {
                                 ch.pipeline().addLast("demp-rpc-decoder", new DemoRpcDecoder());
                                 ch.pipeline().addLast("demo-rpc-encoder", new DemoRpcEncoder());
                                 ch.pipeline().addLast("server-handler", new DemoRpcServerHandler());
@@ -52,7 +52,7 @@ public class DemoRpcServer {
                         });
     }
 
-    public ChannelFuture start() throws InterruptedException {
+    public ChannelFuture start () throws InterruptedException {
         // 监听指定的端口
         ChannelFuture channelFuture = serverBootstrap.bind(port);
         channel = channelFuture.channel();
@@ -61,7 +61,7 @@ public class DemoRpcServer {
     }
 
 
-    public void startAndWait() throws InterruptedException {
+    public void startAndWait () throws InterruptedException {
         try {
             channel.closeFuture().await();
         } catch (InterruptedException e) {
@@ -70,7 +70,7 @@ public class DemoRpcServer {
     }
 
 
-    public void shutdown() throws InterruptedException {
+    public void shutdown () throws InterruptedException {
         channel.close().sync();
         if (bossGroup != null)
             bossGroup.shutdownGracefully().awaitUninterruptibly(15000);

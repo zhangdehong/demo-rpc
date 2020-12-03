@@ -21,7 +21,8 @@ public class DemoRpcServerHandler extends SimpleChannelInboundHandler<Message<Re
     @Override
     protected void channelRead0(final ChannelHandlerContext channelHandlerContext, Message<Request> message) throws Exception {
         byte extraInfo = message.getHeader().getExtraInfo();
-        if (Constants.isHeartBeat(extraInfo)) { // 心跳消息，直接返回即可
+        // 心跳消息，直接返回即可
+        if (Constants.isHeartBeat(extraInfo)) {
             channelHandlerContext.writeAndFlush(message);
             return;
         }
