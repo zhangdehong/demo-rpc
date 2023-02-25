@@ -5,6 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created on 2020-06-21
+ * @author zhangdehong
  */
 public class BeanManager {
 

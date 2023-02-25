@@ -15,6 +15,9 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
+/**
+ * @author zhangdehong
+ */
 public class DemoRpcClient implements Closeable {
 
     protected Bootstrap clientBootstrap;

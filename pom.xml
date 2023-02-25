@@ -2,51 +2,69 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>org.example</groupId>
-    <artifactId>demo-rpc</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-    </modules>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.5.RELEASE</version>
     </parent>
-
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>org.example</groupId>
+    <artifactId>demo-rpc</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    
+    <properties>
+        <netty-all.version>4.1.29.Final</netty-all.version>
+        <hessian.version>4.0.66</hessian.version>
+        <snappy-java.version>1.1.7.5</snappy-java.version>
+        <curator-x-discovery>5.4.0</curator-x-discovery>
+        <jackson-version>2.14.2</jackson-version>
+        <netty-codec-haproxy.version>4.1.89.Final</netty-codec-haproxy.version>
+    </properties>
+    
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.example</groupId>-->
-<!--            <artifactId>demo-protocol</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--        </dependency>-->
-
+        <!--        <dependency>-->
+        <!--            <groupId>org.example</groupId>-->
+        <!--            <artifactId>demo-protocol</artifactId>-->
+        <!--            <version>${project.version}</version>-->
+        <!--        </dependency>-->
+        
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.25.Final</version>
+            <version>${netty-all.version}</version>
         </dependency>
-
+        
         <dependency>
             <groupId>com.caucho</groupId>
             <artifactId>hessian</artifactId>
-            <version>4.0.38</version>
+            <version>${hessian.version}</version>
         </dependency>
-
+        
         <dependency>
             <groupId>org.xerial.snappy</groupId>
             <artifactId>snappy-java</artifactId>
-            <version>1.1.7.5</version>
+            <version>${snappy-java.version}</version>
         </dependency>
-
+        
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-x-discovery</artifactId>
-            <version>4.0.1</version>
+            <version>${curator-x-discovery}</version>
+            <!--<exclusions>-->
+            <!--    <exclusion>-->
+            <!--        <groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--        <artifactId>jackson-databind</artifactId>-->
+            <!--    </exclusion>-->
+            <!--</exclusions>-->
         </dependency>
+        <!--<dependency>-->
+        <!--    <groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--    <artifactId>jackson-databind</artifactId>-->
+        <!--    <version>${jackson-version}</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>

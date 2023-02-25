@@ -72,10 +72,12 @@ public class DemoRpcServer {
 
     public void shutdown () throws InterruptedException {
         channel.close().sync();
-        if (bossGroup != null)
+        if (bossGroup != null) {
             bossGroup.shutdownGracefully().awaitUninterruptibly(15000);
-        if (workerGroup != null)
+        }
+        if (workerGroup != null) {
             workerGroup.shutdownGracefully().awaitUninterruptibly(15000);
+        }
     }
 
 }

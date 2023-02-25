@@ -44,11 +44,11 @@ public class ZookeeperRegistry<T> implements Registry<T> {
                 .build();
         serviceDiscovery.start(); // 启动ServiceDiscovery
 
-        // 创建ServiceCache，监Zookeeper相应节点的变化，也方便后续的读取
+        // 创建ServiceCache，监控Zookeeper相应节点的变化，也方便后续的读取
         serviceCache = serviceDiscovery.serviceCacheBuilder()
                 .name("/demoService")
                 .build();
-//        client.start(); // 启动Curator客户端
+        client.start(); // 启动Curator客户端
         client.blockUntilConnected();  // 阻塞当前线程，等待连接成功
         serviceDiscovery.start(); // 启动ServiceDiscovery
         serviceCache.start(); // 启动ServiceCache

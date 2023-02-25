@@ -9,6 +9,7 @@ import com.caucho.hessian.io.Hessian2Output;
 
 /**
  * Created on 2020-06-19
+ * @author zhangdehong
  */
 public class HessianSerialization implements Serialization {
 

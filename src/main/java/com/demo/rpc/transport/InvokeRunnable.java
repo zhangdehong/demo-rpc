@@ -15,13 +15,13 @@ class InvokeRunnable implements Runnable {
     private ChannelHandlerContext ctx;
     private Message<Request> message;
 
-    public InvokeRunnable(Message<Request> message, ChannelHandlerContext ctx) {
+    public InvokeRunnable (Message<Request> message, ChannelHandlerContext ctx) {
         this.message = message;
         this.ctx = ctx;
     }
 
     @Override
-    public void run() {
+    public void run () {
         Response response = new Response();
         Object result = null;
         try {
@@ -40,7 +40,8 @@ class InvokeRunnable implements Runnable {
         }
         Header header = message.getHeader();
         header.setExtraInfo((byte) 1);
-        response.setResult(result); // 设置响应结果
+        // 设置响应结果
+        response.setResult(result);
         // 将响应消息返回给客户端
         ctx.writeAndFlush(new Message(header, response));
     }

@@ -3,6 +3,9 @@ package com.demo.rpc.protocol;
 
 import java.io.Serializable;
 
+/**
+ * @author zhangdehong
+ */
 public class Response implements Serializable {
 
     /**
