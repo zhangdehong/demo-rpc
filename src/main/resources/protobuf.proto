@@ -1,0 +1,73 @@
+//  protobuf 版本设定
+syntax = "proto3";
+
+// protobuf生成的源文件是一个Java文件还是多个Java文件
+option java_multiple_files = false;
+
+// 指定protobuf生成的类放置在那个包中
+option java_package = "com.hong.proto";
+
+// 指定protobuf生成的外部类的名字(管理内部类，内部类在开发中真正使用)
+option java_outer_classname = "UserService";
+
+enum demo{
+  SPRING = 0;
+  SUMMER = 1;
+}
+// 枚举的值 必须是0 开始
+
+
+// 消息
+
+message LoginRequest{
+
+  string username = 1;
+  //  singular string password = 2;
+  int32 age = 3;
+
+}
+// 编号从1 开始 到2^29-1 19000-19999区间编号不能使用，是protobuf自己保留的
+
+// - singular : (修饰字段）这个字段的值只能是0 个或者一个（默认关键字）
+// - repeated :
+
+message loginResponse{
+
+}
+
+message Result{
+  string content = 1;
+  repeated string status = 2;  // 这个字段返回值是多个
+}
+
+// 消息嵌套
+message SearchResponse{
+  message Result{
+    string url = 1;
+    string title = 2;
+  }
+  string xxx = 1;
+  int32 yyy = 2;
+  Result result = 3;
+}
+
+message AAA{
+  string xxx = 1;
+  SearchResponse.Result result = 2;
+}
+
+// oneof 其中之一
+
+message SimpleMessage{
+  oneof test_oneof{
+    string name = 1;
+    int32 age = 2;
+  }
+}
+
+
+// 定义服务
+
+service helloService{
+  rpc hello(HelloRequest) retuns (HelloResponse) {}
+}

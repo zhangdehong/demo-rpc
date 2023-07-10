@@ -1,0 +1,8 @@
+syntax="proto3";
+
+option java_multiple_files=false;
+
+option java_package="com.hong.grpc";
+
+option java_outer_classname="First";
+
