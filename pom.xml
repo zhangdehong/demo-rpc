@@ -11,6 +11,7 @@
         <module>rpc-grpc-demo</module>
         <module>rpc-grpc-api</module>
         <module>rpc-grpc-service</module>
+        <module>rpc-grpc-client</module>
     </modules>
     
     <modelVersion>4.0.0</modelVersion>
@@ -70,6 +71,14 @@
         <!--    <artifactId>jackson-databind</artifactId>-->
         <!--    <version>${jackson-version}</version>-->
         <!--</dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

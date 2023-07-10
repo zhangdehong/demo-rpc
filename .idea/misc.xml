@@ -20,18 +20,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/demo-client/pom.xml" />
-        <option value="$PROJECT_DIR$/demo-common/pom.xml" />
-        <option value="$PROJECT_DIR$/demo-protocol/pom.xml" />
-        <option value="$PROJECT_DIR$/demo-rpc-example/demo-rpc-example-api/pom.xml" />
-        <option value="$PROJECT_DIR$/demo-server/pom.xml" />
-        <option value="$PROJECT_DIR$/example-api/pom.xml" />
-        <option value="$PROJECT_DIR$/example-client/pom.xml" />
-        <option value="$PROJECT_DIR$/example-server/pom.xml" />
-      </set>
-    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
