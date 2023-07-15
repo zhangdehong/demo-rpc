@@ -5,31 +5,36 @@ import com.hong.grpc.generated.HelloServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+import java.util.Iterator;
+
 /**
- * 简单rpc 一元rpc
+ * 服务端流式rpc-1----HelloServiceBlockingStub的使用
  *
  * @Author: ZhangDeHong
  * @Describe: TODO
  * @Date Create by  00:45 2023/7/11
  */
-public class GrpcClient1 {
+public class GrpcClient3 {
 
     public static void main (String[] arges) {
         // 1.创建通信管道
         ManagedChannel managedChannel = ManagedChannelBuilder.forAddress("localhost", 9888).usePlaintext().build();
         try {
-            // 2.获得代理对象
             HelloServiceGrpc.HelloServiceBlockingStub helloService = HelloServiceGrpc.newBlockingStub(managedChannel);
-            // 3.完成rpc调用
-            // 3.1准备参数
-            HelloProto.HelloRequest.Builder builder = HelloProto.HelloRequest.newBuilder();
-            builder.setName("hello grpc");
-            HelloProto.HelloRequest helloRequest = builder.build();
-            // 3.2 进行rpc调用
-            HelloProto.HelloResponse hello = helloService.hello(helloRequest);
-            System.out.println(hello.getResult());
+
+            HelloProto.HelloRequest.Builder helloRequest = HelloProto.HelloRequest.newBuilder();
+            helloRequest.setName("晴天");
+            HelloProto.HelloRequest request = helloRequest.build();
+
+            Iterator<HelloProto.HelloResponse> responseIterator = helloService.c2ss(request);
+
+            while (responseIterator.hasNext()) {
+                HelloProto.HelloResponse helloResponse = responseIterator.next();
+                System.out.println("helloResponse: " + helloResponse.getResult());
+            }
+
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } finally {
             managedChannel.shutdown();
         }
