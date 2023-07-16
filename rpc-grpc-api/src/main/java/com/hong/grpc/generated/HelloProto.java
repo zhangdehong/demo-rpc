@@ -1055,23 +1055,39 @@ public final class HelloProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 多个参数
+     * </pre>
+     *
      * <code>repeated string name = 1;</code>
      * @return A list containing the name.
      */
     java.util.List<java.lang.String>
         getNameList();
     /**
+     * <pre>
+     * 多个参数
+     * </pre>
+     *
      * <code>repeated string name = 1;</code>
      * @return The count of name.
      */
     int getNameCount();
     /**
+     * <pre>
+     * 多个参数
+     * </pre>
+     *
      * <code>repeated string name = 1;</code>
      * @param index The index of the element to return.
      * @return The name at the given index.
      */
     java.lang.String getName(int index);
     /**
+     * <pre>
+     * 多个参数
+     * </pre>
+     *
      * <code>repeated string name = 1;</code>
      * @param index The index of the value to return.
      * @return The bytes of the name at the given index.
@@ -1121,6 +1137,10 @@ public final class HelloProto {
     private com.google.protobuf.LazyStringArrayList name_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
     /**
+     * <pre>
+     * 多个参数
+     * </pre>
+     *
      * <code>repeated string name = 1;</code>
      * @return A list containing the name.
      */
@@ -1129,6 +1149,10 @@ public final class HelloProto {
       return name_;
     }
     /**
+     * <pre>
+     * 多个参数
+     * </pre>
+     *
      * <code>repeated string name = 1;</code>
      * @return The count of name.
      */
@@ -1136,6 +1160,10 @@ public final class HelloProto {
       return name_.size();
     }
     /**
+     * <pre>
+     * 多个参数
+     * </pre>
+     *
      * <code>repeated string name = 1;</code>
      * @param index The index of the element to return.
      * @return The name at the given index.
@@ -1144,6 +1172,10 @@ public final class HelloProto {
       return name_.get(index);
     }
     /**
+     * <pre>
+     * 多个参数
+     * </pre>
+     *
      * <code>repeated string name = 1;</code>
      * @param index The index of the value to return.
      * @return The bytes of the name at the given index.
@@ -1469,6 +1501,10 @@ public final class HelloProto {
         bitField0_ |= 0x00000001;
       }
       /**
+       * <pre>
+       * 多个参数
+       * </pre>
+       *
        * <code>repeated string name = 1;</code>
        * @return A list containing the name.
        */
@@ -1478,6 +1514,10 @@ public final class HelloProto {
         return name_;
       }
       /**
+       * <pre>
+       * 多个参数
+       * </pre>
+       *
        * <code>repeated string name = 1;</code>
        * @return The count of name.
        */
@@ -1485,6 +1525,10 @@ public final class HelloProto {
         return name_.size();
       }
       /**
+       * <pre>
+       * 多个参数
+       * </pre>
+       *
        * <code>repeated string name = 1;</code>
        * @param index The index of the element to return.
        * @return The name at the given index.
@@ -1493,6 +1537,10 @@ public final class HelloProto {
         return name_.get(index);
       }
       /**
+       * <pre>
+       * 多个参数
+       * </pre>
+       *
        * <code>repeated string name = 1;</code>
        * @param index The index of the value to return.
        * @return The bytes of the name at the given index.
@@ -1502,6 +1550,10 @@ public final class HelloProto {
         return name_.getByteString(index);
       }
       /**
+       * <pre>
+       * 多个参数
+       * </pre>
+       *
        * <code>repeated string name = 1;</code>
        * @param index The index to set the value at.
        * @param value The name to set.
@@ -1517,6 +1569,10 @@ public final class HelloProto {
         return this;
       }
       /**
+       * <pre>
+       * 多个参数
+       * </pre>
+       *
        * <code>repeated string name = 1;</code>
        * @param value The name to add.
        * @return This builder for chaining.
@@ -1531,6 +1587,10 @@ public final class HelloProto {
         return this;
       }
       /**
+       * <pre>
+       * 多个参数
+       * </pre>
+       *
        * <code>repeated string name = 1;</code>
        * @param values The name to add.
        * @return This builder for chaining.
@@ -1545,6 +1605,10 @@ public final class HelloProto {
         return this;
       }
       /**
+       * <pre>
+       * 多个参数
+       * </pre>
+       *
        * <code>repeated string name = 1;</code>
        * @return This builder for chaining.
        */
@@ -1556,6 +1620,10 @@ public final class HelloProto {
         return this;
       }
       /**
+       * <pre>
+       * 多个参数
+       * </pre>
+       *
        * <code>repeated string name = 1;</code>
        * @param value The bytes of the name to add.
        * @return This builder for chaining.
@@ -2184,13 +2252,14 @@ public final class HelloProto {
       "\n\013Hello.proto\"\034\n\014HelloRequest\022\014\n\004name\030\001 " +
       "\001(\t\"\037\n\rHelloResponse\022\016\n\006result\030\001 \001(\t\"\035\n\r" +
       "HelloRequest1\022\014\n\004name\030\001 \003(\t\" \n\016HelloResp" +
-      "onse1\022\016\n\006result\030\001 \001(\t2\273\001\n\014HelloService\022(" +
+      "onse1\022\016\n\006result\030\001 \001(\t2\351\001\n\014HelloService\022(" +
       "\n\005hello\022\r.HelloRequest\032\016.HelloResponse\"\000" +
       "\022+\n\006hello1\022\016.HelloRequest1\032\017.HelloRespon" +
       "se1\"\000\022)\n\004c2ss\022\r.HelloRequest\032\016.HelloResp" +
       "onse\"\0000\001\022)\n\004cs2s\022\r.HelloRequest\032\016.HelloR" +
-      "esponse\"\000(\001B\'\n\027com.hong.grpc.generatedB\n" +
-      "HelloProtoP\000b\006proto3"
+      "esponse\"\000(\001\022,\n\005cs2ss\022\r.HelloRequest\032\016.He" +
+      "lloResponse\"\000(\0010\001B\'\n\027com.hong.grpc.gener" +
+      "atedB\nHelloProtoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

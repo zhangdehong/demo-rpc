@@ -139,6 +139,37 @@ public final class HelloServiceGrpc {
     return getCs2sMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.hong.grpc.generated.HelloProto.HelloRequest,
+      com.hong.grpc.generated.HelloProto.HelloResponse> getCs2ssMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "cs2ss",
+      requestType = com.hong.grpc.generated.HelloProto.HelloRequest.class,
+      responseType = com.hong.grpc.generated.HelloProto.HelloResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+  public static io.grpc.MethodDescriptor<com.hong.grpc.generated.HelloProto.HelloRequest,
+      com.hong.grpc.generated.HelloProto.HelloResponse> getCs2ssMethod() {
+    io.grpc.MethodDescriptor<com.hong.grpc.generated.HelloProto.HelloRequest, com.hong.grpc.generated.HelloProto.HelloResponse> getCs2ssMethod;
+    if ((getCs2ssMethod = HelloServiceGrpc.getCs2ssMethod) == null) {
+      synchronized (HelloServiceGrpc.class) {
+        if ((getCs2ssMethod = HelloServiceGrpc.getCs2ssMethod) == null) {
+          HelloServiceGrpc.getCs2ssMethod = getCs2ssMethod =
+              io.grpc.MethodDescriptor.<com.hong.grpc.generated.HelloProto.HelloRequest, com.hong.grpc.generated.HelloProto.HelloResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "cs2ss"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.hong.grpc.generated.HelloProto.HelloRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.hong.grpc.generated.HelloProto.HelloResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new HelloServiceMethodDescriptorSupplier("cs2ss"))
+              .build();
+        }
+      }
+    }
+    return getCs2ssMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -202,6 +233,9 @@ public final class HelloServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 服务端流式
+     * </pre>
      */
     default void c2ss(com.hong.grpc.generated.HelloProto.HelloRequest request,
         io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloResponse> responseObserver) {
@@ -209,10 +243,23 @@ public final class HelloServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 客户端流式
+     * </pre>
      */
     default io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloRequest> cs2s(
         io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloResponse> responseObserver) {
       return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getCs2sMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 双向流
+     * </pre>
+     */
+    default io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloRequest> cs2ss(
+        io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloResponse> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getCs2ssMethod(), responseObserver);
     }
   }
 
@@ -260,6 +307,9 @@ public final class HelloServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 服务端流式
+     * </pre>
      */
     public void c2ss(com.hong.grpc.generated.HelloProto.HelloRequest request,
         io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloResponse> responseObserver) {
@@ -268,11 +318,25 @@ public final class HelloServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 客户端流式
+     * </pre>
      */
     public io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloRequest> cs2s(
         io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloResponse> responseObserver) {
       return io.grpc.stub.ClientCalls.asyncClientStreamingCall(
           getChannel().newCall(getCs2sMethod(), getCallOptions()), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 双向流
+     * </pre>
+     */
+    public io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloRequest> cs2ss(
+        io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloResponse> responseObserver) {
+      return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
+          getChannel().newCall(getCs2ssMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -307,6 +371,9 @@ public final class HelloServiceGrpc {
     }
 
     /**
+     * <pre>
+     * 服务端流式
+     * </pre>
      */
     public java.util.Iterator<com.hong.grpc.generated.HelloProto.HelloResponse> c2ss(
         com.hong.grpc.generated.HelloProto.HelloRequest request) {
@@ -352,6 +419,7 @@ public final class HelloServiceGrpc {
   private static final int METHODID_HELLO1 = 1;
   private static final int METHODID_C2SS = 2;
   private static final int METHODID_CS2S = 3;
+  private static final int METHODID_CS2SS = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -395,6 +463,9 @@ public final class HelloServiceGrpc {
         case METHODID_CS2S:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.cs2s(
               (io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloResponse>) responseObserver);
+        case METHODID_CS2SS:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.cs2ss(
+              (io.grpc.stub.StreamObserver<com.hong.grpc.generated.HelloProto.HelloResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -431,6 +502,13 @@ public final class HelloServiceGrpc {
               com.hong.grpc.generated.HelloProto.HelloRequest,
               com.hong.grpc.generated.HelloProto.HelloResponse>(
                 service, METHODID_CS2S)))
+        .addMethod(
+          getCs2ssMethod(),
+          io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
+            new MethodHandlers<
+              com.hong.grpc.generated.HelloProto.HelloRequest,
+              com.hong.grpc.generated.HelloProto.HelloResponse>(
+                service, METHODID_CS2SS)))
         .build();
   }
 
@@ -483,6 +561,7 @@ public final class HelloServiceGrpc {
               .addMethod(getHello1Method())
               .addMethod(getC2ssMethod())
               .addMethod(getCs2sMethod())
+              .addMethod(getCs2ssMethod())
               .build();
         }
       }

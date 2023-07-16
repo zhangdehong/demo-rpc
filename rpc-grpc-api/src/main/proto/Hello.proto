@@ -17,6 +17,7 @@ message HelloResponse {
 }
 
 message HelloRequest1 {
+    // 多个参数
     repeated string name = 1;
 }
 
@@ -28,6 +29,10 @@ message HelloResponse1 {
 service HelloService {
     rpc hello (HelloRequest) returns (HelloResponse) {}
     rpc hello1 (HelloRequest1) returns (HelloResponse1) {}
+    // 服务端流式
     rpc c2ss (HelloRequest) returns (stream HelloResponse) {}
+    // 客户端流式
     rpc cs2s (stream HelloRequest) returns (HelloResponse) {}
+    // 双向流
+    rpc cs2ss (stream HelloRequest) returns (stream HelloResponse) {}
 }

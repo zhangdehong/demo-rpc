@@ -106,7 +106,7 @@ public class HelloServiceImpl extends HelloServiceGrpc.HelloServiceImplBase {
 
             @Override
             public void onError (Throwable throwable) {
-                System.out.println("服务端异常！"+throwable);
+                System.out.println("服务端异常！" + throwable);
             }
 
             @Override
@@ -117,6 +117,34 @@ public class HelloServiceImpl extends HelloServiceGrpc.HelloServiceImplBase {
                 builder.setResult("client stream end ,this is result");
                 HelloProto.HelloResponse build = builder.build();
                 responseObserver.onNext(build);
+                responseObserver.onCompleted();
+            }
+        };
+    }
+
+    /**
+     * 双向流的rpc service
+     *
+     * @param responseObserver
+     * @return
+     */
+    @Override
+    public StreamObserver<HelloProto.HelloRequest> cs2ss (StreamObserver<HelloProto.HelloResponse> responseObserver) {
+        return new StreamObserver<>() {
+            @Override
+            public void onNext (HelloProto.HelloRequest helloRequest) {
+                System.out.println("接收到client提交的数据:=====> " + helloRequest.getName());
+                responseObserver.onNext(HelloProto.HelloResponse.newBuilder().setResult("response: " + helloRequest.getName()).build());
+            }
+
+            @Override
+            public void onError (Throwable throwable) {
+
+            }
+
+            @Override
+            public void onCompleted () {
+                System.out.println("接受client请求数据结束:=======> end");
                 responseObserver.onCompleted();
             }
         };
