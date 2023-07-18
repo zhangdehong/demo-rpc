@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_package = "com.hong.grpc.generated";
+option java_outer_classname = "FeatureProto";
+
+/**
+ * IDL目的 发布rpc服务 service ---> message  message <-------  feature xxx
+ */
+
+message FeatureRequest {
+    string name = 1;
+}
+
+message FeatureResponse {
+    string result = 1;
+}
+
+service FeatureService {
+    rpc featureTest (FeatureRequest) returns (FeatureResponse) {};
+}

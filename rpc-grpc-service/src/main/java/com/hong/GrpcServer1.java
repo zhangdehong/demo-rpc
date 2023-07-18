@@ -1,5 +1,6 @@
 package com.hong;
 
+import com.hong.service.FeatureServiceImpl;
 import com.hong.service.HelloServiceImpl;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -19,6 +20,7 @@ public class GrpcServer1 {
 
         // 发布服务
         serverBuilder.addService(new HelloServiceImpl());
+        serverBuilder.addService(new FeatureServiceImpl());
 
         // 创建服务对象
         Server server = serverBuilder.build();
