@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: boot-client
+
+
+grpc:
+  client:
+    grpc-server:
+      address: "static://127.0.0.1:9888"
+      negotiation-type: plaintext  # ??usePlanText

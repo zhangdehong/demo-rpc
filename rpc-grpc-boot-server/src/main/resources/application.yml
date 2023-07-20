@@ -1,0 +1,11 @@
+# ????grpc??????
+spring:
+  application:
+    name: boos-server
+#  main:
+#    web-application-type: none
+
+
+grpc:
+  server:
+    port: 9888
